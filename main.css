@@ -9,10 +9,24 @@ body {
   position: absolute;
   top: 150px;
 }
-.meni{
+.naslov, .meni{
 	position: absolute;
-    top: 30px;
-    right: 5px;
+	top: 26px;
+	font-family: 'Shadows Into Light Two', cursive;
 	color: white;
+}
+.naslov{
+	font-size: 3em;
+	left: 40px;
+}
+.meni{
+    right: 40px;
+	
 	font-size: 2em;
+	
+	
+}
+
+.meni span{
+	margin-right: 16px;
 }
