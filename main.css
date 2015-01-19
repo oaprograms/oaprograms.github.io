@@ -1,7 +1,18 @@
 body { 
-  background: url(images/poz.jpg) no-repeat center center fixed; 
+  background: url(img/poz.jpg) no-repeat left top fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+#links{
+  position: absolute;
+  top: 150px;
+}
+.meni{
+	position: absolute;
+    top: 30px;
+    right: 5px;
+	color: white;
+	font-size: 2em;
 }
