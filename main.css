@@ -7,7 +7,7 @@ body {
 }
 #links{
   position: absolute;
-  top: 150px;
+  top: 180px;
 }
 .naslov, .meni{
 	position: absolute;
@@ -29,4 +29,8 @@ body {
 
 .meni span{
 	margin-right: 16px;
+}
+
+.meni a:link, a:visited, a:hover, a:active{
+	color: white;
 }
