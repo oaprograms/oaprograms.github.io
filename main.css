@@ -11,24 +11,21 @@ body {
 }
 .naslov, .meni{
 	position: absolute;
-	top: 26px;
 	font-family: 'Shadows Into Light Two', cursive;
 	color: white;
 }
 .naslov{
-	font-size: 3em;
-	left: 40px;
+	font-size: 2.5em;
+	left: 30px;
+    top: 15px;
 }
 .meni{
-    right: 40px;
-	
-	font-size: 2em;
-	
-	
+    right: 30px;
+    top: 26px;
+	font-size: 1.7em;
 }
-
 .meni span{
-	margin-right: 16px;
+	margin-right: 10px;
 }
 
 .meni a:link, a:visited, a:hover, a:active{
