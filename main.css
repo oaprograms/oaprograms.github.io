@@ -78,6 +78,6 @@ body #links a img {
     border: none;
 }
 
-html {
+html.portfolio {
     overflow-y: scroll;
 }
