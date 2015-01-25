@@ -1,33 +1,69 @@
-body { 
-  background: url(img/poz.jpg) no-repeat left top fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-#links{
-  position: absolute;
-  top: 180px;
-}
-.naslov, .meni{
-	position: absolute;
-	font-family: 'Shadows Into Light Two', cursive;
-	color: white;
-}
-.naslov{
-	font-size: 2.5em;
-	left: 30px;
-    top: 15px;
-}
-.meni{
-    right: 30px;
-    top: 26px;
-	font-size: 1.7em;
-}
-.meni span{
-	margin-right: 10px;
+body {
+    background: url(img/poz.jpg) no-repeat left top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-.meni a:link, a:visited, a:hover, a:active{
-	color: white;
+.sadrzaj {
+    position: absolute;
+    top: 180px;
+    width: 100%;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    padding: 20px;
+}
+
+.naslov, .meni {
+    position: absolute;
+    font-family: 'Shadows Into Light Two', cursive;
+    color: white;
+}
+
+.naslov {
+    font-size: 2.5em;
+    left: 30px;
+    top: 20px;
+}
+
+.meni {
+    right: 30px;
+    top: 26px;
+    font-size: 1.8em;
+    margin-left: 320px;
+}
+
+.meni div {
+    margin-right: 10px;
+    display: inline-block;
+}
+.meni div img{
+    margin-right: 5px;
+}
+.meni a:link, a:visited, a:hover, a:active {
+    color: white;
+}
+
+body #links {
+    text-align: center;
+}
+
+body #links a img {
+    padding: 6px;
+}
+
+.naslovna-slika {
+    width: 300px;
+    float: right;
+    margin-right: 20px;
+}
+
+.padd {
+    padding: 15px;
+}
+
+.borderless tbody tr td, .borderless thead tr th {
+    border: none;
 }
