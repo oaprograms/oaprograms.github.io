@@ -76,12 +76,21 @@ body #links a img {
 }
 
 .izlozba-slika2 {
+    width: 325px;
+}
+
+.izlozba-slika3 {
     width: 300px;
 }
 
 .nagrade-slika {
     height: 200px;
 }
+
+.nagrade-slika1 {
+    height: 300px;
+}
+
 .oumetniku-slika{
     width: 250px;
     margin-right: 15px !important;
