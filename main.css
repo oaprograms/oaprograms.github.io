@@ -1,5 +1,5 @@
 body {
-    background: url(img/pozz.jpg) no-repeat left top fixed;
+    background: url(img/pozz.jpg) repeat-y left top fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -30,6 +30,7 @@ body {
 }
 
 .meni {
+    text-align: right;
     right: 30px;
     top: 22px;
     font-size: 1.8em;
