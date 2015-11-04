@@ -1,0 +1,16 @@
+.owl img{
+    width: 100%;
+}
+body{
+    font-size: 16px;
+    color: white;
+}
+.project{
+    background-color: #101319; padding: 15px; margin-top: 20px;
+}
+.project p{
+    color: white;
+}
+.round{
+    border-radius: 50%;
+}
