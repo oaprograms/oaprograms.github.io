@@ -8,4 +8,5 @@ $(document).ready(function() {
 	$("#owl1").owlCarousel(owl);
     $("#owl2").owlCarousel(owl);
     $("#owl3").owlCarousel(owl);
+    $("#owl4").owlCarousel(owl);
 });
