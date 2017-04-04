@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title of the document</title>
+</head>
+
+<body>
+<video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  
+  <video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  
+  <video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video><br><video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video><br><video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video><br><video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video><br><video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video><br><video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video><br><video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video><br><video loop muted>
+  <source src="http://html5demos.com/assets/dizzy.mp4" type="video/mp4">
+  
+</video>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+  <p>test</p>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+</script>
+  
+<script>
+$(function(){
+	$(window).scroll(function() {
+		var $a = $("video:visible");
+		var minDist = -1;
+		var $toPlay = null;
+        $a.each(function() {
+            var $this = $(this);
+			var dist = Math.abs(($this.offset().top + $this.height() / 2) - ($(window).scrollTop() + $(window).height() / 2));
+			if (minDist == -1 || dist < minDist) {
+				minDist = dist;
+				$toPlay = $this;
+			}
+        });
+		$a.each(function() {
+            var $this = $(this);
+			if ($this.is($toPlay)) {
+				$this.trigger('play');
+			} else {
+				$this.trigger('pause');
+			}
+        });
+		
+    });
+});
+
+
+</script>
+</body>
+
+</html>
