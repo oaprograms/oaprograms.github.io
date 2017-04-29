@@ -1,0 +1,68 @@
+<html>
+<head>
+<style>
+.dim { color:green; }
+button { padding: 10px 20px; margin: 0 5px; }
+.title a { margin: 0 5px; }
+.title {
+	width: 100%;
+	background: #eee; 
+}
+</style>
+</head>
+
+<body style="display: flex; align-items: center; justify-content: center; text-align: center; flex-direction: column;">
+
+<div class="title">
+<h1>English Challenge</h1>
+<p>Try to translate given phrase in your head, then check your answer</p>
+<a href="#">My score</a>  <a href="#">My answers</a> <a href="#">Contribute (add phrases)</a>
+<p style="opacity: 0.5;">Serbian - English <a href="#">Change</a></p>
+<br>
+</div>
+<a></a>
+<div style="flex:2; width: 100%;">
+<br><br>
+<p>Ne umem da prevedem ovo.</p>
+
+
+<button class="js-show-transl">Show translation &gt </button>
+
+
+<section class="transl" style="display: none;">
+<p> I don't know how to translate this. </p>
+<p> I am not able to translate this. </p>
+<p> I can't translate this. </p>
+
+
+<button><span style="color: red;">Didn't know this</span><br><br>Show easier &gt</button>   <button><span style="color: green;">I knew this</span><br><br>Show harder &gt</button>
+<br><br><a href="#">I had a different answer (contribute)</a>
+
+<br><br>
+
+* Found this phrase useful? <a href="#">Yes</a> <a href="#">No</a>
+</section>
+
+
+
+
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+<script>
+var texts = [
+
+
+
+]
+
+$('.js-show-transl').on('click', function(){
+	$('.js-show-transl').attr('disabled', 'disabled');
+	$('.transl').show();
+});
+</script>
+</body>
+
+</html>
