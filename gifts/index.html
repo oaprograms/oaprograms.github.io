@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Gifts</title>
+	<link rel="stylesheet" href="static/main.min.css?v=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body ng-controller="mainCtrl">
+	<header></header>
+	<section class="p-gifts">
+		<div class="container">
+			<div class="category-section">
+				<div class="category-wrapper">
+					<p class="category">Category | <span class="specific-category js-specific-category">garden</span></p>
+				</div>
+				<a href="#" class="favourite-items-wrapper">
+					<p class="favourite-items-text">Favourite items <span class="number-of-items js-number-of-items">(65)</span></p>
+				</a>
+			</div>
+			<div class="checkbox-section">
+				<div class="checkbox-item" ng-repeat="category in data.categories">
+					<input type="checkbox" ng-model="category.show" id="cat{{$index}}"/>
+					<label for="cat{{$index}}">{{ category.name }}</label>
+				</div>
+			</div>
+			<div class="sliders-section">
+				
+			</div>
+			<div class="suggestions-section">
+				<a href="#" class="suggestion-text">Suggestions <span class="suggestions-number js-suggestions-number">(34)</span></a>
+			</div>
+			<div class="products-section">
+				<div class="single-product" ng-repeat="gift in data.gifts | filterCategories: data.categories">
+					<div class="image-wrapper">
+						<img src="{{ gift.img }}" alt="">
+					</div>
+					<div class="data-wrapper">
+						<p class="product-name">{{ gift.name }}</p>
+						<p class="price">${{gift.min}} - ${{gift.max}}</p>
+						<a href="#" class="like fa fa-heart-o fa-2x"></a>
+						<!--<a href="#" class="skip-item">-->
+							<!--<p class="skip-text">Skip this item</p>-->
+							<!--<span class="fa fa-chevron-right arrow-icon" aria-hidden="true"></span>-->
+						<!--</a>-->
+						<!--<a href="#" class="skip-category">-->
+							<!--<p class="skip-text">Skip this category</p>-->
+							<!--<span class="fa fa-chevron-right arrow-icon" aria-hidden="true"></span>-->
+						<!--</a>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+	<script src="static/bundle.min.js"></script>
+</body>
+</html>
