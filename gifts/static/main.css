@@ -75,11 +75,11 @@
   background: #df002d; }
 
 .rzslider .rz-bar-wrapper.rz-right-out-selection .rz-bar {
-  background: #03a688; }
+  background: #cbb680; }
 
 .rzslider .rz-selection {
   z-index: 2;
-  background: #03a688;
+  background: #cbb680;
   border-radius: 2px; }
 
 .rzslider .rz-pointer {
@@ -88,7 +88,7 @@
   width: 32px;
   height: 32px;
   cursor: pointer;
-  background-color: #03a688;
+  background-color: #cbb680;
   border-radius: 16px; }
 
 .rzslider .rz-pointer:after {
@@ -148,7 +148,7 @@
   border-radius: 50%; }
 
 .rzslider .rz-tick.rz-selected {
-  background: #03a688; }
+  background: #cbb680; }
 
 .rzslider .rz-tick-value {
   position: absolute;
@@ -254,6 +254,12 @@ header {
 
 .container {
   width: 1170px; }
+
+.mr {
+  margin-right: 12px; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
 
 .p-gifts {
   padding: 0px 30px; }

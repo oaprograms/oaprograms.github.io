@@ -2705,6 +2705,9 @@ DATA.gifts =
 
 var app = angular.module('app', ['rzModule']);
 
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
 
 app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$document', function ($scope, $interval, $timeout, $sce, $document) {
 	
@@ -2715,14 +2718,28 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
 
     $scope.priceSlider = {
         min: '$0',
-        max: '$200',
+        max: '$300',
         options: {
             floor: '$0',
-            ceil: '$200',
-            stepsArray: ['$0', '$1', '$2', '$3', '$5', '$7', '$10', '$15', '$20', '$25', '$30', '$40', '$50', '$75', '$100', '$125', '$150', '$200'],
-            showTicks: false
-            // showTicksValues: true
+            ceil: '$300',
+            stepsArray: ['$0', '$1', '$2', '$3', '$5', '$7', '$10', '$15', '$20', '$25', '$30', '$40', '$50', '$75', '$100', '$125', '$150', '$200', '$300'],
+            ticksArray: ['$5', '$20', '$75'],
+            showTicks: true,
+            showTicksValues: true
         }
+    };
+
+    $scope.data.favs = JSON.parse(localStorage.getItem('favs') || '[]') || [];
+
+    $scope.toggleFav = function(gift){
+        if ($scope.data.favs.indexOf(gift.name) == -1) {
+            $scope.data.favs.push(gift.name);
+            $scope.data.favs = $scope.data.favs.filter(onlyUnique);
+        } else {
+            var index = $scope.data.favs.indexOf(gift.name);
+            $scope.data.favs.splice(index, 1);
+        }
+        localStorage.setItem('favs', JSON.stringify($scope.data.favs));
     };
 
 	$scope.selectCategory = function(category){
@@ -2756,6 +2773,17 @@ app.filter('filterPrices', function() {
         var max = parseInt(price.max.replace('$', ''));
         angular.forEach(input, function(item) {
             if (! (item.min > max || item.max < min)) {
+                out.push(item);
+            }
+        });
+        return out;
+    }
+});
+app.filter('filterFavs', function() {
+    return function(input, favs) {
+        var out = [];
+        angular.forEach(input, function(item) {
+            if (favs.indexOf(item.name) > -1) {
                 out.push(item);
             }
         });
