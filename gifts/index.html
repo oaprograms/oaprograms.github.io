@@ -14,16 +14,26 @@
 		<div class="container">
 			<div class="category-section">
 				<div class="category-wrapper">
-					<p class="category">Category | <span class="specific-category js-specific-category">garden</span></p>
+					<p class="category">
+						<span class="price-label">Price:</span>
+						<rzslider
+							rz-slider-model="priceSlider.min"
+							rz-slider-high="priceSlider.max"
+							rz-slider-options="priceSlider.options" style="width: 200px;">
+						</rzslider>
+					</p>
 				</div>
 				<a href="#" class="favourite-items-wrapper">
 					<p class="favourite-items-text">Favourite items <span class="number-of-items js-number-of-items">(65)</span></p>
 				</a>
 			</div>
 			<div class="checkbox-section">
+				<div class="checkbox-item">
+					<a href="#" ng-click="selectCategory('all')">All Categories</a>
+				</div>
 				<div class="checkbox-item" ng-repeat="category in data.categories">
 					<input type="checkbox" ng-model="category.show" id="cat{{$index}}"/>
-					<label for="cat{{$index}}">{{ category.name }}</label>
+					<label for="cat{{$index}}"><span ng-click="selectCategory(category.name); $event.stopPropagation(); $event.preventDefault();">{{ category.name }}</span></label>
 				</div>
 			</div>
 			<div class="sliders-section">
@@ -33,13 +43,15 @@
 				<a href="#" class="suggestion-text">Suggestions <span class="suggestions-number js-suggestions-number">(34)</span></a>
 			</div>
 			<div class="products-section">
-				<div class="single-product" ng-repeat="gift in data.gifts | filterCategories: data.categories">
+				<div class="single-product" ng-repeat="gift in data.gifts | filterCategories: data.categories | filterPrices: priceSlider">
 					<div class="image-wrapper">
 						<img src="{{ gift.img }}" alt="">
 					</div>
 					<div class="data-wrapper">
 						<p class="product-name">{{ gift.name }}</p>
 						<p class="price">${{gift.min}} - ${{gift.max}}</p>
+						<p class="tags"><span ng-repeat="tag in gift.tags"><a href="#" ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
+
 						<a href="#" class="like fa fa-heart-o fa-2x"></a>
 						<!--<a href="#" class="skip-item">-->
 							<!--<p class="skip-text">Skip this item</p>-->
