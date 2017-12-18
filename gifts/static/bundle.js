@@ -2722,8 +2722,8 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
         options: {
             floor: '$0',
             ceil: '$300',
-            stepsArray: ['$0', '$1', '$2', '$3', '$5', '$7', '$10', '$15', '$20', '$25', '$30', '$40', '$50', '$75', '$100', '$125', '$150', '$200', '$300'],
-            ticksArray: ['$5', '$20', '$75'],
+            stepsArray: ['$0', '$1', '$2', '$3', '$4', '$5', '$7', '$10', '$15', '$20', '$25', '$30', '$40', '$50', '$75', '$100', '$125', '$150', '$200', '$300'],
+            ticksArray: [0, 5, 9, 13, 19],
             showTicks: true,
             showTicksValues: true
         }
@@ -2747,6 +2747,10 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
             cat.show = (cat.name == category) || category == 'all';
         });
 	}
+
+	$scope.getLink = function(gift){
+	    return 'https://www.amazon.com/s?tag=giftaz-20&field-keywords=' + encodeURIComponent(gift.name);
+    };
 
 }]);
 
