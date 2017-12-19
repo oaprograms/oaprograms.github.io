@@ -17,63 +17,103 @@
 					<p class="category">
 						<span class="price-label">Price:</span>
 						<rzslider
-							rz-slider-model="priceSlider.min"
-							rz-slider-high="priceSlider.max"
-							rz-slider-options="priceSlider.options" style="width: 200px;">
-						</rzslider>
-					</p>
-				</div>
-				<a href class="favourite-items-wrapper" ng-click="data.showFavs = ! data.showFavs">
-					<p class="favourite-items-text">
-						<span ng-if="! data.showFavs">Favorite items
-							<span class="number-of-items js-number-of-items ng-cloak">({{ data.favs.length }})</span>
-						</span>
-						<span ng-if="data.showFavs" class="ng-cloak"><span class="fa fa-chevron-left mr"></span>All items</span>
-					</p>
-				</a>
-			</div>
-			<div class="checkbox-section" ng-if="! data.showFavs">
-				<div class="checkbox-item">
-					<a href="#" ng-click="selectCategory('all')">All Categories</a>
-				</div>
-				<div class="checkbox-item ng-cloak" ng-repeat="category in data.categories">
-					<input type="checkbox" ng-model="category.show" id="cat{{$index}}"/>
-					<label for="cat{{$index}}"><span ng-click="selectCategory(category.name); $event.stopPropagation(); $event.preventDefault();">{{ category.name }}</span></label>
-				</div>
-			</div>
-			<div class="sliders-section">
-				
-			</div>
-			<div class="suggestions-section" ng-if="! data.showFavs">
-				<a href="#" class="suggestion-text">Suggestions <span class="suggestions-number ng-cloak">({{ filtered.length }})</span></a>
-			</div>
-			<div class="products-section">
-				<div class="single-product ng-cloak" ng-repeat="gift in data.gifts | filterCategories: data.categories | filterPrices: priceSlider as filtered" ng-if="!data.showFavs">
-					<a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
-						<img src="{{ gift.img }}" alt="">
-					</a>
-					<div class="data-wrapper">
-						<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
-						<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a></p>
-						<p class="tags"><span ng-repeat="tag in gift.tags"><a href="#" ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
-						<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}" class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
-					</div>
-				</div>
-				<div class="single-product ng-cloak" ng-repeat="gift in data.gifts | filterFavs: data.favs" ng-if="data.showFavs">
-					<a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
-						<img src="{{ gift.img }}" alt="">
-					</a>
-					<div class="data-wrapper">
-						<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
-						<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a></p>
-						<p class="tags"><span ng-repeat="tag in gift.tags"><a href="#" ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
-						<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}" class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
-					</div>
-				</div>
+                            rz-slider-model="priceSlider.min"
+                            rz-slider-high="priceSlider.max"
+                            rz-slider-options="priceSlider.options" style="width: 280px;">
+					    </rzslider>
+				    </p>
+                    <p class="category">
+                        <span class="price-label">Age:</span>
+                        <rzslider
+                                rz-slider-model="ageSlider.val"
+                                rz-slider-options="ageSlider.options" style="width: 150px;">
+                        </rzslider>
+                    </p>
+                    <p class="category">
+                        <span class="price-label">Gender:</span>
+                        <rzslider
+                                rz-slider-model="genderSlider.val"
+                                rz-slider-options="genderSlider.options" style="width: 150px;">
+                        </rzslider>
+                    </p>
+			    </div>
+                <a href class="favourite-items-wrapper" ng-click="data.showFavs = ! data.showFavs">
+                    <p class="favourite-items-text">
+                        <span ng-if="! data.showFavs">Favorite items
+                            <span class="number-of-items js-number-of-items ng-cloak">({{ data.favs.length }})</span>
+                        </span>
+                        <span ng-if="data.showFavs" class="ng-cloak"><span class="fa fa-chevron-left mr"></span>All items</span>
+                    </p>
+                </a>
+		    </div>
+		<div class="categories-section" ng-if="! data.showFavs">
+            <div class="checkbox-item" ng-click="selectCategory('all'); $event.stopPropagation(); $event.preventDefault();">
+                <input type="checkbox" ng-model="data.allCategoriesSelected" id="catAll"/>
+                <label for="catAll"><span>All Categories</span></label>
+            </div>
+		</div>
+		<div class="checkbox-section" ng-if="! data.showFavs">
+			<div class="checkbox-item ng-cloak" ng-repeat="category in data.categories">
+				<input type="checkbox" ng-model="category.show" id="cat{{$index}}"/>
+				<label for="cat{{$index}}"><span ng-click="selectCategory(category.name); $event.stopPropagation(); $event.preventDefault();">{{ category.name }}</span></label>
 			</div>
 		</div>
-	</section>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-	<script src="static/bundle.min.js"></script>
+		<div class="sliders-section">
+
+		</div>
+		<div class="suggestions-section" ng-if="! data.showFavs">
+			<span class="suggestion-text">Suggestions <span class="suggestions-number ng-cloak">({{ filtered.length }})</span></span>
+            <a href="#"><span class="fa fa-plus"></span>Add Suggestion</a>
+		</div>
+		<div class="products-section grid">
+			<figure class="single-product ng-cloak effect-zoe" ng-repeat="gift in data.gifts | filterCategories: data.categories | filterPrices: priceSlider as filtered" ng-if="!data.showFavs">
+				<a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
+					<img src="{{ gift.img }}" alt="">
+				</a>
+				<div class="product-wrapper">
+					<div class="product-name-wrapper">
+						<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
+						<p class="tags"><span ng-repeat="tag in gift.tags"><a href="#" class="tag" ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
+					</div>
+					<figcaption class="data-wrapper">
+						<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a></p>
+						<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}" class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
+					</figcaption>
+				</div>
+				<div class="figure-overlay"></div>
+			</figure>
+			<figure class="single-product ng-cloak effect-zoe" ng-repeat="gift in data.gifts | filterFavs: data.favs" ng-if="data.showFavs">
+				<a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
+					<img src="{{ gift.img }}" alt="">
+				</a>
+				<div class="product-wrapper">
+					<div class="product-name-wrapper">
+						<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
+						<p class="tags"><span ng-repeat="tag in gift.tags"><a href="#" ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
+					</div>
+					<figcaption class="data-wrapper">
+						<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a></p>
+						<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}" class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
+					</figcaption>
+				</div>
+				<div class="figure-overlay"></div>
+			</figure>
+		</div>
+	</div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script>
+
+
+// 	document.addEventListener('DOMContentLoaded', function() {
+//     var el = document.getElementsByClassName("rz-pointer");
+//     for (var i = 0;  i < el.length; i++) {
+//         i.className += " fa-gift";
+//     }
+// }, false);
+
+
+</script>
+<script src="static/bundle.min.js"></script>
 </body>
 </html>

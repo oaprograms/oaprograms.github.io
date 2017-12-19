@@ -83,23 +83,14 @@
   border-radius: 2px; }
 
 .rzslider .rz-pointer {
-  top: -14px;
+  top: -10px;
   z-index: 3;
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 24px;
   cursor: pointer;
-  background-color: #cbb680;
-  border-radius: 16px; }
-
-.rzslider .rz-pointer:after {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 8px;
-  height: 8px;
-  background: #ffffff;
+  background-color: #d46641;
   border-radius: 4px;
-  content: ''; }
+  outline: 0; }
 
 .rzslider .rz-pointer:hover:after {
   background-color: #ffffff; }
@@ -113,7 +104,6 @@
 .rzslider .rz-bubble {
   bottom: 16px;
   padding: 1px 3px;
-  color: #55637d;
   cursor: default; }
 
 .rzslider .rz-bubble.rz-limit {
@@ -133,19 +123,20 @@
 
 .rzslider .rz-ticks-values-under .rz-tick-value {
   top: auto;
-  bottom: -32px; }
+  bottom: -28px;
+  font-size: 12px;
+  color: #e2e2e2; }
 
 .rzslider .rz-tick {
   position: absolute;
   top: 0;
   left: 0;
-  width: 10px;
+  width: 3px;
   height: 10px;
   margin-left: 11px;
   text-align: center;
   cursor: pointer;
-  background: #d8e0f3;
-  border-radius: 50%; }
+  background: #e2e2e2; }
 
 .rzslider .rz-tick.rz-selected {
   background: #cbb680; }
@@ -240,20 +231,17 @@ p, a, label, span {
   color: #888;
   font-weight: 400; }
 
-p {
-  margin: 0; }
-
 a {
   display: block;
-  color: #888 !important; }
+  color: #d46641 !important; }
+
+a:focus, a:hover {
+  text-decoration: none !important; }
 
 header {
   width: 100%;
   height: 50px;
-  background-color: #a29064; }
-
-.container {
-  width: 1170px; }
+  background-color: #d46641; }
 
 .mr {
   margin-right: 12px; }
@@ -263,11 +251,16 @@ header {
 
 .p-gifts {
   padding: 0px 30px; }
+  .p-gifts .container {
+    width: 1170px; }
+  .p-gifts .categories-section {
+    padding: 12px 0px;
+    border-bottom: 1px solid #eee; }
   .p-gifts .category-section {
     width: 100%;
     overflow: hidden;
     padding: 20px 0px;
-    font-size: 15px;
+    font-size: 16px;
     border-bottom: 1px solid #eee; }
     .p-gifts .category-section .category-wrapper {
       float: left; }
@@ -277,7 +270,9 @@ header {
       display: flex;
       -webkit-box-align: end;
           -ms-flex-align: end;
-              align-items: flex-end; }
+              align-items: flex-end;
+      float: left;
+      padding-right: 50px; }
     .p-gifts .category-section .price-label {
       margin-right: 20px;
       padding-bottom: 10px; }
@@ -288,67 +283,71 @@ header {
     .p-gifts .category-section .specific-category {
       text-transform: uppercase; }
   .p-gifts .checkbox-section {
-    border-bottom: 1px solid #eee;
-    padding: 25px 0px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
-    .p-gifts .checkbox-section .checkbox-item {
-      margin: 0px 20px;
-      min-width: 120px; }
-    .p-gifts .checkbox-section [type="checkbox"]:not(:checked),
-    .p-gifts .checkbox-section [type="checkbox"]:checked {
-      position: absolute;
-      left: -9999px; }
-    .p-gifts .checkbox-section [type="checkbox"]:not(:checked) + label,
-    .p-gifts .checkbox-section [type="checkbox"]:checked + label {
-      position: relative;
-      padding-left: 30px;
-      cursor: pointer;
-      -webkit-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none; }
-    .p-gifts .checkbox-section [type="checkbox"]:not(:checked) + label:before,
-    .p-gifts .checkbox-section [type="checkbox"]:checked + label:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 20px;
-      height: 20px;
-      border: 2px solid #d8d8d8;
-      background: #fff;
-      border-radius: 0; }
-    .p-gifts .checkbox-section [type="checkbox"]:not(:checked) + label:after,
-    .p-gifts .checkbox-section [type="checkbox"]:checked + label:after {
-      content: '✔';
-      position: absolute;
-      top: 3px;
-      left: 3px;
-      font-size: 17px;
-      line-height: 0.8;
-      color: #09ad7e;
-      -webkit-transition: all .2s;
-      transition: all .2s; }
-    .p-gifts .checkbox-section [type="checkbox"]:not(:checked) + label:after {
-      opacity: 0;
-      -webkit-transform: scale(0);
-              transform: scale(0); }
-    .p-gifts .checkbox-section [type="checkbox"]:checked + label:after {
-      opacity: 1;
-      -webkit-transform: scale(1);
-              transform: scale(1); }
-    .p-gifts .checkbox-section .checkbox-arrow-down span {
-      font-size: 25px;
-      margin-left: 8px;
-      -webkit-text-stroke: 4px white;
-      color: #bebebe; }
+    padding: 25px 0px; }
+  .p-gifts .checkbox-item {
+    margin: 5px 0px;
+    width: 20%;
+    display: inline-block; }
+  .p-gifts [type="checkbox"]:not(:checked),
+  .p-gifts [type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px; }
+  .p-gifts [type="checkbox"]:not(:checked) + label,
+  .p-gifts [type="checkbox"]:checked + label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+  .p-gifts [type="checkbox"]:not(:checked) + label:before,
+  .p-gifts [type="checkbox"]:checked + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d8d8d8;
+    background: #fff;
+    border-radius: 0; }
+  .p-gifts [type="checkbox"]:not(:checked) + label:after,
+  .p-gifts [type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    font-size: 17px;
+    line-height: 0.8;
+    color: #09ad7e;
+    -webkit-transition: all .2s;
+    transition: all .2s; }
+  .p-gifts [type="checkbox"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0); }
+  .p-gifts [type="checkbox"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); }
+  .p-gifts .checkbox-arrow-down span {
+    font-size: 25px;
+    margin-left: 8px;
+    -webkit-text-stroke: 4px white;
+    color: #bebebe; }
   .p-gifts .suggestions-section {
     padding: 12px 0px;
     border-bottom: 1px solid #eee; }
+    .p-gifts .suggestions-section .suggestion-text {
+      font-weight: bold;
+      font-size: 16px; }
+    .p-gifts .suggestions-section a {
+      display: inline-block;
+      margin-left: 60px; }
+      .p-gifts .suggestions-section a .fa {
+        margin-right: 8px;
+        color: #d46641; }
   .p-gifts .products-section {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -363,13 +362,34 @@ header {
     padding: 30px 0px;
     border-bottom: 1px solid #eee;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
+        flex-wrap: wrap;
+    position: relative;
+    margin: 0 auto;
+    padding: 1em 0 4em;
+    list-style: none;
+    text-align: center;
+    /*---------------*/
+    /***** Zoe *****/
+    /*---------------*/ }
     .p-gifts .products-section .single-product {
-      -ms-flex-preferred-size: 22%;
-          flex-basis: 22%;
+      -ms-flex-preferred-size: 24%;
+          flex-basis: 24%;
       border: 1px solid #eee;
       margin-bottom: 15px; }
+    .p-gifts .products-section .product-name {
+      margin-top: 20px;
+      margin-bottom: 0;
+      font-size: 18px; }
+    .p-gifts .products-section .tags {
+      margin-top: 10px;
+      margin-bottom: 0; }
+      .p-gifts .products-section .tags span {
+        color: #D46641; }
+      .p-gifts .products-section .tags .tag:hover {
+        text-decoration: underline !important;
+        color: #333 !important; }
     .p-gifts .products-section .image-wrapper {
+      padding: 40px 20px 20px 20px;
       height: 170px;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -383,31 +403,198 @@ header {
     .p-gifts .products-section .data-wrapper {
       padding: 20px;
       text-align: center; }
-    .p-gifts .products-section .product-name {
-      text-transform: uppercase; }
     .p-gifts .products-section .price {
-      font-size: 20px;
-      color: #d46641; }
-    .p-gifts .products-section .tags a {
-      display: inline-block; }
-    .p-gifts .products-section .skip-item, .p-gifts .products-section .skip-category {
+      font-size: 18px;
+      color: #d46641;
+      margin-bottom: 0; }
+    .p-gifts .products-section .tags {
+      padding-bottom: 20px; }
+      .p-gifts .products-section .tags a {
+        display: inline-block; }
+    .p-gifts .products-section .like:hover, .p-gifts .products-section .like:focus {
+      text-decoration: none; }
+    .p-gifts .products-section figure {
+      text-align: center;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative; }
+    .p-gifts .products-section figure img {
+      position: relative;
+      display: block;
+      min-height: 100%;
+      max-width: 100%;
+      opacity: 0.8; }
+    .p-gifts .products-section figure figcaption {
+      padding: 2em;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 1.25em;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden; }
+    .p-gifts .products-section figure figcaption {
+      width: 100%; }
+    .p-gifts .products-section figure.effect-zoe {
+      -webkit-transition: all 0.35s ease;
+      transition: all 0.35s ease; }
+    .p-gifts .products-section figure.effect-zoe figcaption {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      font-size: 15px;
-      margin-top: 12px; }
-      .p-gifts .products-section .skip-item:hover, .p-gifts .products-section .skip-item:focus, .p-gifts .products-section .skip-category:hover, .p-gifts .products-section .skip-category:focus {
-        text-decoration: none; }
-    .p-gifts .products-section .like:hover, .p-gifts .products-section .like:focus {
-      text-decoration: none; }
-    .p-gifts .products-section .skip-text {
-      margin: 0; }
-    .p-gifts .products-section .arrow-icon {
-      padding-top: 2px;
-      padding-left: 10px; }
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+      position: relative;
+      z-index: 600;
+      top: auto;
+      bottom: 0;
+      padding: 20px;
+      background: #fff;
+      color: #d46641;
+      -webkit-transition: -webkit-transform 0.35s ease;
+      transition: -webkit-transform 0.35s ease;
+      transition: transform 0.35s ease;
+      transition: transform 0.35s ease, -webkit-transform 0.35s ease;
+      -webkit-transform: translate3d(0, 100%, 0);
+              transform: translate3d(0, 100%, 0); }
+    .p-gifts .products-section figure.effect-zoe p.description {
+      position: absolute;
+      bottom: 8em;
+      padding: 2em;
+      color: #fff;
+      text-transform: none;
+      font-size: 90%;
+      opacity: 0;
+      -webkit-transition: opacity 0.35s;
+      transition: opacity 0.35s;
+      -webkit-backface-visibility: hidden; }
+    .p-gifts .products-section figure.effect-zoe h2,
+    .p-gifts .products-section figure.effect-zoe p.icon-links a {
+      -webkit-transition: -webkit-transform 0.35s;
+      transition: -webkit-transform 0.35s;
+      transition: transform 0.35s;
+      transition: transform 0.35s, -webkit-transform 0.35s;
+      -webkit-transform: translate3d(0, 200%, 0);
+              transform: translate3d(0, 200%, 0); }
+    .p-gifts .products-section figure.effect-zoe p.icon-links a span::before {
+      display: inline-block;
+      padding: 8px 10px;
+      font-family: 'feathericons';
+      speak: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+    .p-gifts .products-section .icon-eye::before {
+      content: '\e000'; }
+    .p-gifts .products-section .icon-paper-clip::before {
+      content: '\e001'; }
+    .p-gifts .products-section .icon-heart::before {
+      content: '\e024'; }
+    .p-gifts .products-section figure .figure-overlay {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 500;
+      width: 100%;
+      height: 100%;
+      background-color: #d46641;
+      opacity: 0;
+      -webkit-transition: all 0.35s ease;
+      transition: all 0.35s ease;
+      pointer-events: none; }
+    .p-gifts .products-section figure.effect-zoe h2 {
+      display: inline-block; }
+    .p-gifts .products-section figure.effect-zoe:hover .figure-overlay {
+      opacity: .2; }
+    .p-gifts .products-section figure.effect-zoe:hover figcaption {
+      -webkit-box-shadow: 0px -1px 6px 0px rgba(212, 102, 65, 0.1);
+              box-shadow: 0px -1px 6px 0px rgba(212, 102, 65, 0.1); }
+    .p-gifts .products-section figure.effect-zoe:hover p.description {
+      opacity: 1; }
+    .p-gifts .products-section figure.effect-zoe:hover figcaption,
+    .p-gifts .products-section figure.effect-zoe:hover h2,
+    .p-gifts .products-section figure.effect-zoe:hover p.icon-links a {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0); }
+    .p-gifts .products-section figure.effect-zoe:hover h2 {
+      -webkit-transition-delay: 0.05s;
+      transition-delay: 0.05s; }
+    .p-gifts .products-section figure.effect-zoe:hover p.icon-links a:nth-child(3) {
+      -webkit-transition-delay: 0.1s;
+      transition-delay: 0.1s; }
+    .p-gifts .products-section figure.effect-zoe:hover p.icon-links a:nth-child(2) {
+      -webkit-transition-delay: 0.15s;
+      transition-delay: 0.15s; }
+    .p-gifts .products-section figure.effect-zoe:hover p.icon-links a:first-child {
+      -webkit-transition-delay: 0.2s;
+      transition-delay: 0.2s; }
+  @media (max-width: 1200px) {
+    .p-gifts .container {
+      width: 100%; }
+    .p-gifts .products-section .single-product {
+      -ms-flex-preferred-size: 32%;
+          flex-basis: 32%; } }
+  @media (max-width: 1100px) {
+    .p-gifts .checkbox-section .checkbox-item {
+      width: 25%; }
+    .p-gifts .products-section figure.effect-zoe figcaption {
+      -webkit-transform: none;
+              transform: none; }
+    .p-gifts .products-section figure.effect-zoe:hover .figure-overlay {
+      opacity: 0; }
+    .p-gifts .products-section figure.effect-zoe:hover figcaption {
+      -webkit-box-shadow: none;
+              box-shadow: none; } }
+  @media (max-width: 900px) {
+    .p-gifts .products-section .single-product {
+      -ms-flex-preferred-size: 48%;
+          flex-basis: 48%; } }
+  @media (max-width: 850px) {
+    .p-gifts .checkbox-section .checkbox-item {
+      width: 33%; } }
+  @media (max-width: 768px) {
+    .p-gifts .products-section .single-product {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-preferred-size: 100%;
+          flex-basis: 100%; }
+      .p-gifts .products-section .single-product .product-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between; }
+      .p-gifts .products-section .single-product .product-name-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: end;
+            -ms-flex-align: end;
+                align-items: flex-end;
+        padding: 20px; }
+      .p-gifts .products-section .single-product .image-wrapper {
+        padding-top: 20px;
+        height: 100%;
+        width: 30%; }
+      .p-gifts .products-section .single-product .product-wrapper {
+        width: 70%; }
+      .p-gifts .products-section .single-product .product-name {
+        margin-bottom: 0;
+        margin-top: 0; }
+      .p-gifts .products-section .single-product .tags {
+        padding-bottom: 0;
+        padding-left: 10px; }
+    .p-gifts .products-section figure.effect-zoe figcaption {
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; } }
+  @media (max-width: 600px) {
+    .p-gifts .checkbox-section .checkbox-item {
+      width: 50%; } }
