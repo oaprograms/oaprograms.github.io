@@ -1,0 +1,79 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sr-Latn-BA" lang="sr-Latn-BA" dir="ltr">
+<head profile="http://gmpg.org/xfn/11">
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+<meta property="og:image" itemprop="image" content="http://hsrthsrthbytebjtedyb/test.jpg"/>
+
+  <link rel="stylesheet" href="main.css?v=1.0">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+  
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous">
+  </script>
+	
+</head>
+
+
+<body>
+  <script>
+	 window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '199732977262303',
+	      xfbml      : true,
+	      version    : 'v2.11'
+	    });
+	    FB.AppEvents.logPageView();
+	  };
+
+	  (function(d, s, id){
+	     var js, fjs = d.getElementsByTagName(s)[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement(s); js.id = id;
+	     js.src = "https://connect.facebook.net/en_US/sdk.js";
+	     fjs.parentNode.insertBefore(js, fjs);
+	   }(document, 'script', 'facebook-jssdk'));
+  </script>
+	
+	<a class="btn btn-rounded btn-social btn-twitter js-share-on-twitter" href="https://twitter.com/intent/tweet?text=test&url=http%3A%2F%2Ftagorum.com&hashtags=BEOGRADŽIVI">Podeli na Tviteru</a>
+	<a href="#" class="btn btn-rounded btn-social btn-facebook js-share-on-facebook" data-title="Ovaj tekst je za naslove koji idu u dva reda" data-url="http://tagorum.com/" data-lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." data-hashtag="BEOGRADŽIVI">Podeli na Fejsbuku</a>
+
+<script>
+	 $('.js-share-on-twitter').click(function(e) {
+	    e.preventDefault();
+	    var href = $(this).attr('href');
+	    window.open(href, "Twitter", "height=285,width=550,resizable=1");
+	  });
+	// fb share
+	$('.js-share-on-facebook').on('click', function (e) {
+		e.preventDefault();
+		var $this = $(this),
+		    title = $this.data('title'),
+		    url = $this.data('url'),
+		    lead = $this.data('lead'),
+		    hashtag = $this.data('hashtag');
+
+		if (typeof FB !== 'undefined') {
+			FB.ui({
+				method: 'share',
+				href: url,
+				display: 'popup',
+				hashtag: '#test',
+				mobile_iframe: true
+			});
+		}
+	});
+</script>
+	
+  <script src="app.js?v=1.0"></script>
+</body>
+</html>
