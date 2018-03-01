@@ -81,8 +81,8 @@ ProjectedOverlay.prototype.draw = function(firstTime)
   return ;
  }
 
- var c1 = this.getProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
- var c2 = this.getProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+ var c1 = this.getProjection().fromLatLngToDivPixel(this.bounds_.getSouthWest());
+ var c2 = this.getProjection().fromLatLngToDivPixel(this.bounds_.getNorthEast());
 
  if (!c1 || !c2) return;
 
