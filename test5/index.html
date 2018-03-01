@@ -1,1 +1,117 @@
-test
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sl" lang="sl" dir="ltr">
+	<head profile="http://gmpg.org/xfn/11">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<meta name="viewport" id="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0"/>
+  <title>Pokritost z Omrežjem | Telemach</title>
+
+    	</head>
+        <body>
+<section class="section-tab ul-shown six-tabs map-section-tab">
+	<div class="container tabs js-tab-urls">
+        <div class="row tab-list-wrapper">        
+            <ul class="hidden-xs tab-list">
+            		<li class="tab-unit">
+						<a href="#tab-14359" role="tab" data-toggle="tab" aria-controls="tab-14359" type="button" class="btn btn-default js-map-tab" data-map="14359" data-posterphotourl="https://telemach.si/Picture/22599/png/kml_image_GSM_TelemachMobil_coverage_L1_0_0_GSM_v6.png" data-kmlfileid="11835">
+							2G
+						</a>
+            		</li>
+            		<li class="tab-unit active">
+						<a href="#tab-14361" role="tab" data-toggle="tab" aria-controls="tab-14361" type="button" class="btn btn-default js-map-tab" data-map="14361" data-posterphotourl="https://telemach.si/Picture/22600/png/kml_image_UMTS_TelemachMobil_coverage_L1_0_0_UMTS_v6.png" data-kmlfileid="11836">
+							3G
+						</a>
+            		</li>
+            		<li class="tab-unit">
+						<a href="#tab-14363" role="tab" data-toggle="tab" aria-controls="tab-14363" type="button" class="btn btn-default js-map-tab" data-map="14363" data-posterphotourl="https://telemach.si/Picture/22601/png/kml_image_LTE_TelemachMobil_coverage_L1_0_0_LTE_v6.png" data-kmlfileid="11837">
+							4G/LTE
+						</a>
+            		</li>
+            </ul>
+            <div class="dropdown visible-xs">    
+                <button aria-expanded="false" data-toggle="dropdown" type="button" class="btn btn-default dropdown-toggle">        
+                    <div class="left">2G</div>
+                    <span class="menu-arrow"></span>    
+                </button>    
+                <ul class="dropdown-menu">
+						<li>
+							<a>
+								2G
+							</a>
+						</li>
+						<li>
+							<a>
+								3G
+							</a>
+						</li>
+						<li>
+							<a>
+								4G/LTE
+							</a>
+						</li>
+                </ul>
+            </div>           
+        </div>
+    </div>
+    <div class="tab-content product-tabs-container">
+				<div role="tabpanel" class="tab-pane" id="tab-14359" aria-labelledby="tab-14359">
+					<!-- Map holder -->
+    				<div class="map" id="14359"></div>
+				</div>
+				<div role="tabpanel" class="tab-pane active in" id="tab-14361" aria-labelledby="tab-14361">
+					<!-- Map holder -->
+    				<div class="map" id="14361"></div>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="tab-14363" aria-labelledby="tab-14363">
+					<!-- Map holder -->
+    				<div class="map" id="14363"></div>
+				</div>
+    </div>
+</section>
+
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyD91heBybLkJDRe5I8gh7iXkZRDbDxIgXs"></script>
+<script type="text/javascript" src="/test5/geoxml3.js"></script>
+<script type="text/javascript" src="/test5/ProjectedOverlay.js"></script>
+<script type="text/javascript" src="/test5/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function($) {
+	// map options 
+	var	coverageMapOptions = {
+			zoom: 8,
+			mapTypeId: google.maps.MapTypeId.ROADMAP,
+			minZoom: 8,
+			maxZoom: 14,
+			scrollwheel: false,
+			zoomControlOptions: { style: google.maps.ZoomControlStyle.SMALL },
+			streetViewControl: false
+		};
+
+	// map initialize 
+	// we need an kml file with default value "PhotoUrl" for photo url for this code to work correctly
+	function initialize(mapId, kmlFileId, photoUrl) {
+		helpers.ajaxWithLoader({
+			type: "GET",
+			dataType: "text",
+			url: "/test5/" + kmlFileId,
+			success: function (response) {
+				var xmlReplaced = response.replace("PhotoUrl", photoUrl),
+				    map = new google.maps.Map(document.getElementById(mapId), coverageMapOptions),
+					mapParser = new geoXML3.parser({ map: map, overlayOptions: { percentOpacity: 50 } });
+
+				mapParser.parseKmlString(xmlReplaced);
+			}
+		})
+	}
+
+
+	// Initialize first map
+	initialize('14361', 11836, "/test5/coverage.png");
+});
+</script>
+
+	</body>
+</html>
