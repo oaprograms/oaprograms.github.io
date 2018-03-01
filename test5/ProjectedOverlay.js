@@ -92,7 +92,7 @@ ProjectedOverlay.prototype.draw = function(firstTime)
  this.div_.style.height = Math.abs(c2.y - c1.y) + "px";
  this.div_.style.left = Math.min(c2.x, c1.x) + "px";
  this.div_.style.top = Math.min(c2.y, c1.y) + "px";
-
+console.log(c1, c2, Math.abs(c2.x - c1.x) + "px", Math.abs(c2.y - c1.y) + "px", Math.min(c2.x, c1.x) + "px", Math.min(c2.y, c1.y) + "px");
  // Do the rest only if the zoom has changed...
  
  if ( this.lastZoom_ == this.map_.getZoom() )
