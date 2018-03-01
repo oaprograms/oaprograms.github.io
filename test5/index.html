@@ -41,7 +41,7 @@ $(document).ready(function($) {
 // 			url: "/test5/" + kmlFileId + '.xml',
 // 			success: function (response) {
 // 				var xmlReplaced = response.replace("PhotoUrl", photoUrl),
-	 var map = new google.maps.Map(document.getElementById(mapId), coverageMapOptions);
+	 var map = new google.maps.Map(document.getElementById(mapId), {});
 // 	 var ctaLayer = new google.maps.KmlLayer({
 //           	url:  "https://oaprograms.github.io/test5/11836.xml',
 //           	map: map
