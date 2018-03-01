@@ -73,7 +73,7 @@ ProjectedOverlay.prototype.remove = function()
 ProjectedOverlay.prototype.draw = function(firstTime)
 {
  // Creates the element if it doesn't exist already.
-
+ console.log('a draw');
  this.createElement();
 
  if (!this.div_)
