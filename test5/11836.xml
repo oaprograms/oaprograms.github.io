@@ -13,6 +13,7 @@
 <GroundOverlay>
   <name>kml_image_UMTS_TelemachMobil_coverage_L1_0_0</name>
   <gx:altitudeMode>clampToSeaFloor</gx:altitudeMode>
+  <color>880000FF</color>
   <Icon class="123123">
     <href>https://oaprograms.github.io/test5/coverage.png</href>
   </Icon>
