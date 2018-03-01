@@ -14,7 +14,7 @@
   <name>kml_image_UMTS_TelemachMobil_coverage_L1_0_0</name>
   <gx:altitudeMode>clampToSeaFloor</gx:altitudeMode>
   <Icon>
-    <href>/test5/coverage.png</href>
+    <href>https://oaprograms.github.io/test5/coverage.png</href>
   </Icon>
   <LatLonBox>
     <north>46.87582356199472900</north>
