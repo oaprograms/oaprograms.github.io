@@ -34,20 +34,24 @@ $(document).ready(function($) {
 
 	// map initialize 
 	// we need an kml file with default value "PhotoUrl" for photo url for this code to work correctly
-	function initialize(mapId, kmlFileId, photoUrl) {
-		$.ajax({
-			type: "GET",
-			dataType: "text",
-			url: "/test5/" + kmlFileId + '.xml',
-			success: function (response) {
-				var xmlReplaced = response.replace("PhotoUrl", photoUrl),
+// 	function initialize(mapId, kmlFileId, photoUrl) {
+// 		$.ajax({
+// 			type: "GET",
+// 			dataType: "text",
+// 			url: "/test5/" + kmlFileId + '.xml',
+// 			success: function (response) {
+// 				var xmlReplaced = response.replace("PhotoUrl", photoUrl),
 				    map = new google.maps.Map(document.getElementById(mapId), coverageMapOptions),
-					mapParser = new geoXML3.parser({ map: map, overlayOptions: { percentOpacity: 50 } });
+	 var ctaLayer = new google.maps.KmlLayer({
+          	url:  "/test5/" + kmlFileId + '.xml',
+          	map: map
+        });
+// 					mapParser = new geoXML3.parser({ map: map, overlayOptions: { percentOpacity: 50 } });
 
-				mapParser.parseKmlString(xmlReplaced);
-			}
-		})
-	}
+// 				mapParser.parseKmlString(xmlReplaced);
+// 			}
+// 		})
+// 	}
 
 
 	// Initialize first map
