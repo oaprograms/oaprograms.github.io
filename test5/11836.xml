@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+<Document>
+<name>UMTS_TelemachMobil_coverage</name>
+<Region>
+  <LatLonAltBox>
+    <north>46.87582356199472900</north>
+    <south>45.42249279404969500</south>
+    <east>16.61079493034075900</east>
+    <west>13.37564082361381200</west>
+  </LatLonAltBox>
+</Region>
+<GroundOverlay>
+  <name>kml_image_UMTS_TelemachMobil_coverage_L1_0_0</name>
+  <gx:altitudeMode>clampToSeaFloor</gx:altitudeMode>
+  <Icon>
+    <href>PhotoUrl</href>
+  </Icon>
+  <LatLonBox>
+    <north>46.87582356199472900</north>
+    <south>45.42249279404969500</south>
+    <east>16.61079493034075900</east>
+    <west>13.37564082361381200</west>
+  </LatLonBox>
+  <Region>
+    <LatLonAltBox>
+      <north>46.87582356199472900</north>
+      <south>45.42249279404969500</south>
+      <east>16.61079493034075900</east>
+      <west>13.37564082361381200</west>
+    </LatLonAltBox>
+    <Lod>
+      <minLodPixels>64</minLodPixels>
+      <maxLodPixels>-1</maxLodPixels>
+    </Lod>
+  </Region>
+</GroundOverlay>
+</Document>
+</kml>
