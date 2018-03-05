@@ -40,7 +40,7 @@ $(document).ready(function($) {
 			dataType: "text",
 			url: "/test5/" + kmlFileId + '.xml',
 			success: function (response) {
-				var xmlReplaced = response.replace("PhotoUrl", photoUrl),
+				var xmlReplaced = response.replace("PhotoUrl", photoUrl);
 				 var map = new google.maps.Map(document.getElementById(mapId), {
 				  center: {lat: -34.397, lng: 150.644},
 				  zoom: 8
