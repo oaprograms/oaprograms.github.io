@@ -54,7 +54,7 @@ $(document).ready(function($) {
 // 			}
 // 		})
 	}
-
+google.maps.event.addListener(map, "click", function() { infoWindow.close(); console.log('radii'); });
 
 	// Initialize first map
 	initialize('14361', 11836, "/test5/coverage.png");
