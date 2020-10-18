@@ -65,7 +65,7 @@
 	let currentSymbol = []; // e.g. [1,2,3,4,1,2,3,4] == [---,- -,-o-,-x-,---,- -,-o-,-x-]
 	
 	function addLine(index) {
-		currentSymbol.push(index);
+		currentSymbol.unshift(index);
 		if (currentSymbol.length === 8) {
 			addSymbol(currentSymbol);
 			currentSymbol = [];
