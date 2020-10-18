@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Coin sheets</title>
+  <meta name="description" content="Coin sheets">
+  <meta name="author" content="Dimitrije">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+  <style>
+	.s1 {
+		background-image: url("data:image/svg+xml,%3Csvg width='29' height='1' viewBox='0 0 29 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='0.5' x2='29' y2='0.5' stroke='black'/%3E%3C/svg%3E%0A");
+		background-repeat: no-repeat;
+		background-position: center;
+		
+	}
+	.s2 {
+		background-image: url("data:image/svg+xml,%3Csvg width='29' height='1' viewBox='0 0 29 1' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='0.5' x2='10' y2='0.5' stroke='black'/%3E%3Cline x1='19' y1='0.5' x2='29' y2='0.5' stroke='black'/%3E%3C/svg%3E%0A");
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	.s3 {
+	
+		background-image: url("data:image/svg+xml,%3Csvg width='29' height='11' viewBox='0 0 29 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='5.5' x2='29' y2='5.5' stroke='black'/%3E%3Ccircle cx='14.5' cy='5.5' r='5' stroke='black'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	.s4 {
+		background-image: url("data:image/svg+xml,%3Csvg width='29' height='11' viewBox='0 0 29 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='5.5' x2='10' y2='5.5' stroke='black'/%3E%3Cline x1='19' y1='5.5' x2='29' y2='5.5' stroke='black'/%3E%3Cline x1='9.27018' y1='0.563134' x2='19.3535' y2='10.6465' stroke='black'/%3E%3Cline x1='19.3536' y1='0.353553' x2='9.27022' y2='10.4369' stroke='black'/%3E%3C/svg%3E%0A");
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	.btn {
+		width: 65px;
+		height: 50px;
+	}
+	.btn:hover {
+		background-color: #fff;
+	}
+	
+	.symbol {
+		display: inline-block;
+		width: 29px;
+		background: pink;
+		vertical-align: top;
+		margin-bottom: 5px;
+		margin-right: 5px;
+		padding: 5px;
+	}
+	.line {
+		width: 29px;
+		height: 13px;
+		
+	}
+	
+  </style>
+  <script>
+	let symbols = [];
+	let currentSymbol = []; // e.g. [1,2,3,4,1,2,3,4] == [---,- -,-o-,-x-,---,- -,-o-,-x-]
+	
+	function addLine(index) {
+		if (currentSymbol.length < 8) {
+			currentSymbol.push(index);
+		} else {
+			addSymbol(currentSymbol);
+			currentSymbol = [index];
+		}
+		redrawSymbols();
+	}
+	
+	function addSymbol(symbol) {
+		// check if any of lines is '-o-' or '-x-' (index 3,4)
+		symbols.push(symbol);
+		let shouldAddSecondSymbol = false;
+		let secondSymbol = symbol.map(line => {
+			if (line === 3 || line === 4) {
+				shouldAddSecondSymbol = true;
+			}
+			return {1: 1, 2: 2, 3: 2, 4: 1}[line];
+		});
+		if (shouldAddSecondSymbol) {
+			symbols.push(secondSymbol);
+		}
+	}
+	
+	function redrawSymbols(){
+		let html = [...symbols, currentSymbol].map(symbol => 
+			`<div class="symbol">${symbol.map(line => `<div class="line s${line}"></div>`).join('')}</div>`
+			).join('');
+		document.getElementById('symbol-preview').innerHTML = html;
+		
+	}
+	
+  </script>
+  <div style="text-align: center; padding: 30px 0;">
+	<button class="btn s1" onclick="addLine(1)"></button>
+	<button class="btn s2" onclick="addLine(2)"></button>
+	<button class="btn s3" onclick="addLine(3)"></button>
+	<button class="btn s4" onclick="addLine(4)"></button>
+  </div>
+  <div id="symbol-preview"></div>
+</body>
+</html>
