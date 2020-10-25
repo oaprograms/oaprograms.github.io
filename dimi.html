@@ -695,6 +695,10 @@ K: Cmin
 					result += letter;
 				}
 				noteIndex++;
+				
+				if (noteIndex === 3) {
+					result += ' ';
+				}
 			}
 		}
 		return result;
